@@ -2,3 +2,6 @@ requests
 requests_oauthlib
 certifi
 mock
+tox
+nose
+coverage
