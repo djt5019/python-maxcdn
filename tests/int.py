@@ -10,12 +10,20 @@ from tests import unittest
 class MaxCDNIntegration(unittest.TestCase):
 
     def setUp(self):
-        self.alias   = os.environ["ALIAS"]
-        self.key     = os.environ["KEY"]
-        self.secret  = os.environ["SECRET"]
-        self.time    = str(int(time.mktime(time.gmtime())))
+        self.alias = os.environ.get("ALIAS")
+        self.key = os.environ.get("KEY")
+        self.secret = os.environ.get("SECRET")
 
-        self.max     = MaxCDN(self.alias, self.key, self.secret)
+        if self.alias is None or self.key is None or self.secret is None:
+            self.fail(
+                'You need to make sure the ALIAS, KEY, and SECRET environment'
+                ' variables have been set before running the integration'
+                ' tests'
+            )
+
+        self.time = str(int(time.mktime(time.gmtime())))
+
+        self.max = MaxCDN(self.alias, self.key, self.secret)
 
     def test_get(self):
         for end_point in [ "account.json", "account.json/address", "users.json", "zones.json" ]:
