@@ -1,10 +1,11 @@
 #!/usr/bin/env python
-import unittest
+import os
 import re
 import time
-import os
 
 from maxcdn import MaxCDN
+from tests import unittest
+
 
 class MaxCDNIntegration(unittest.TestCase):
 

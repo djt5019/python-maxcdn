@@ -1,7 +1,8 @@
-import mock
-import unittest
 import requests
+
 from maxcdn import MaxCDN
+from tests import mock, unittest
+
 
 ################################################################################
 # Mock as needed.
