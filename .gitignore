@@ -7,3 +7,5 @@ netdnarws.egg-info/*
 junit-report.xml
 .ropeproject
 maxcdn.egg-info
+.tox/
+env/
